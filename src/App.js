@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import NasaImageList from './NasaImageList.js';
+import NasaImage from './NasaImage.js';
 
 class App extends React.Component {
     constructor() {
@@ -34,6 +35,7 @@ class App extends React.Component {
                             <NasaImageList images = {this.state.images} />
                         </nav>
                         <article className="col">
+                            <Route path="/image/:nasa_id" component={NasaImage} />
                         </article>
                     </Router>
                 </section>
