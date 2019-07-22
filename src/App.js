@@ -2,6 +2,35 @@ import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 import './App.css';
 
-console.log('initial commit')
+class App extends React.Component {
+    constructor() {
+        super();
 
+        this.state = {
+            'images': null
+        };
+    }
 
+    componentDidMount() {
+    }
+
+    render() {
+        return (
+            <main className="container-fluid">
+                <header className="row">
+                    <div className="col"><h2>Nasa Images</h2></div>
+                </header>
+                <section className="row">
+                    <Router>
+                        <nav className="col-4">
+                        </nav>
+                        <article className="col">
+                        </article>
+                    </Router>
+                </section>
+            </main>
+        );
+    }
+}
+
+export default App;
