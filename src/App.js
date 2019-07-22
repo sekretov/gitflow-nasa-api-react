@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 import './App.css';
+import NasaImageList from './NasaImageList.js';
 
 class App extends React.Component {
     constructor() {
@@ -12,6 +13,13 @@ class App extends React.Component {
     }
 
     componentDidMount() {
+        fetch('https://images-api.nasa.gov/search?q=apollo%2011&description=moon%20landing&media_type=image')
+        .then(response => response.json())
+        .then(data => {
+            this.setState({
+                'images': data.collection.items
+            });
+        });
     }
 
     render() {
@@ -23,6 +31,7 @@ class App extends React.Component {
                 <section className="row">
                     <Router>
                         <nav className="col-4">
+                            <NasaImageList images = {this.state.images} />
                         </nav>
                         <article className="col">
                         </article>
